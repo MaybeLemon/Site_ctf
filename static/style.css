@@ -1,8 +1,8 @@
 :root {
     --background-color: #191925;
     --background-header-color: rgba(0, 0, 0, 0.3);
-    --text-color: #1de800;
-    --main-font-family: Roboto;
+    --text-color: #28da06;
+    --main-font-family: Arial;
 }
 
 body {
@@ -21,6 +21,7 @@ header {
     align-items: flex-end;
     position: relative;
     background-color: var(--background-header-color);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .buttons_header {
@@ -31,38 +32,58 @@ header {
     text-decoration: none;
     font-family: var(--main-font-family);
     font-size: 18px;
+    border-left: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    border-right: 1px solid transparent;
+    transition: 0.4s;
 }
 
 .buttons_header:hover {
-    margin: 0;
-    border-left: 2px solid blue;
-    border-bottom: 2px solid blue;
-    border-right: 2px solid blue;
+    border-left: 1px solid blue;
+    border-bottom: 1px solid blue;
+    border-right: 1px solid blue;
     border-radius: 5px;
     box-shadow: 0 0 20px rgba(4, 255, 226, 0.8);
 }
 
 .main {
-    margin: 20px 10% 0 10%;
+    /*margin: 20px 10% 0 10%;*/
+    display: inline-flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    padding: 20px;
+    max-width: 100%;
 }
 
 .container-tasks {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: start;
-    padding: 0;
-    margin: 0;
+    justify-content: space-evenly;
     list-style: none;
 }
 
 .task {
-    margin-top: 0;
-    padding: 10px 5px 10px 5px;
-    border: black 1px solid;
-    border-radius: 5px;
-    width: 30%;
-    margin: 10px;
+    /*margin-top: 0;*/
+    /*padding: 10px 5px 10px 5px;*/
+    /*border: black 1px solid;*/
+    /*border-radius: 5px;*/
+    /*width: 30%;*/
+    /*margin: 10px;*/
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: max-content;
+    /*width: calc(30% - 20px);*/
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.task:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 p {

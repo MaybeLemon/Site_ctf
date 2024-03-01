@@ -18,13 +18,20 @@
             <a href="{{ url_for('signin') }}" class="buttons_header">Регистрация</a>
         {% endif %}
     </header>
-    <h1>Register</h1>
     <form method="post" action="{{ url_for('signin') }}">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username"><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password"><br>
-        <input type="submit" value="Register">
+        <div class="main-div">
+            <div class="auth_form">
+                <br><br>
+                <p class="elem-auth" id="main-header-div">Регистрация</p>
+                <div class="auth-inputs">
+                    <input type="text" id="username" name="username" class="input-field elem-auth" placeholder="Логин">
+                    <input type="password" id="password" name="password" class="input-field elem-auth" placeholder="Пароль">
+                    <input class="elem-auth buttons-auth" type="submit" value="Зарегистрироваться">
+                </div>
+                <p class="elem-auth">Уже есть аккаунт? <a href="{{ url_for('login') }}">Войти</a></p><br><br>
+            </div>
+        </div>
     </form>
+
 </body>
 </html>
