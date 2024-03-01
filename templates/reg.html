@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='auth.css')}}">
+</head>
+<body>
+    <header>
+        {% for item in data['nav'] %}
+            <a href="{{ item.url }}" class="buttons_header">{{ item.name }}</a>
+        {% endfor %}
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('logout') }}" class="buttons_header">Выйти</a>
+        {% else %}
+            <a href="{{ url_for('login') }}" class="buttons_header">Войти</a>
+            <a href="{{ url_for('signin') }}" class="buttons_header">Регистрация</a>
+        {% endif %}
+    </header>
+    <h1>Register</h1>
+    <form method="post" action="{{ url_for('signin') }}">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br>
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>
