@@ -6,7 +6,12 @@
         "description": "D1",
         "filename": "123",
         "flag": "qwe",
-        "users_solved": []
+        "users_solved": [
+            {
+                "user": "admin",
+                "time": "06.03.2024 19:25:25"
+            }
+        ]
     },
     {
         "name": "Q2",

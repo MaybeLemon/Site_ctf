@@ -135,7 +135,6 @@ header {
     border: 1px solid #ccc;
     border-radius: 10px;
     min-width: calc(50% - 1px);
-
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
@@ -190,10 +189,37 @@ header {
     text-decoration: none;
 }
 
-h1 {
+.head-points {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-family: var(--main-font-family);
+    margin: 0;
+    color: var(--text-color);
+    min-width: 100px;
+    position: relative;
+}
+
+
+h2 {
     font-family: var(--main-font-family);
     color: var(--text-color);
 }
+
+.head-points p {
+    font-size: 20px;
+    font-family: var(--main-font-family);
+    color: var(--text-color);
+    position: absolute;
+    top: 34px;
+    margin: 0;
+    right: 21vw;
+    height: 30px;
+}
+
 
 .admin {
     width: 400px !important;
