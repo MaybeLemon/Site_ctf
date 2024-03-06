@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/main_style.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/task.css')}}">
+</head>
+<body>
+    <header>
+        {% for item in data['nav'] %}
+            <a href="{{ item.url }}" class="buttons_header">{{ item.name }}</a>
+        {% endfor %}
+        {% if current_user.username == 'admin' and current_user.is_authenticated %}
+            <a href="{{ url_for('admin') }}" class="buttons_header">Админ</a>
+        {% endif %}
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('logout') }}" class="buttons_header">Выйти</a>
+        {% else %}
+            <a href="{{ url_for('login') }}" class="buttons_header">Войти</a>
+            <a href="{{ url_for('signin') }}" class="buttons_header">Регистрация</a>
+        {% endif %}
+    </header>
+    <div class="main-div">
+        {% if data['otvet_task'] %}
+            {% if data['flag-correct'] %}
+            <div style="box-shadow: 0 0 20px rgba(12,255,4,0.8);" class="task-frame">
+            {% else %}
+            <div style="box-shadow: 0 0 20px rgba(255,0,0,0.8);" class="task-frame">
+            {% endif %}
+        {% else %}
+        <div class="task-frame">
+        {% endif %}
+            <div class="name-type-task">
+                <p class="name-task">{{ data['current_task']['name'] }}</p>
+                <p class="task-type">{{ data['current_task']['task-type'] }} | {{ data['current_task']['points'] }} баллов</p>
+            </div>
+            <div class="for-desc-and-file">
+                <p class="task-description">{{ data['current_task']['description'] }}</p>
+                {% if data['current_task']['filename'] != '' %}
+                    <div class="file">
+                        <label for="file-link" class="for_input_flag filename_label">Файл для скачивания: </label>
+                        <a name="file-link" class="file-link" href="{{ url_for('file', type=data['current_task']['task-type'], filename=data['current_task']['filename'])}}">{{ data['current_task']['filename'] }}</a>
+                    </div>
+                {% endif %}
+            </div>
+            {% if current_user.is_authenticated %}
+            <form method="post">
+            <div class="task-inputs">
+                <input type="hidden" name="task" value="{{ data['current_task']['name'] }}">
+                <label for="flag" class="for_input_flag">Флаг: </label>
+                <input class="input-field" type="text" name="flag">
+                <input class="buttons-default" type="submit" value="Отправить">
+
+            </div>
+                <p class="otvet">{{ data['otvet_task'] }}</p>
+            </form>
+            {% else %}
+            <p class="warning">Войдите, чтобы отправлять флаги</p>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

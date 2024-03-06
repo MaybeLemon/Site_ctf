@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="{{ url_for('static', filename='scripts/blocks_round.js') }}"></script>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/main_style.css')}}">
+</head>
+<body>
+    <header>
+        {% for item in data['nav'] %}
+            <a href="{{ item.url }}" class="buttons_header">{{ item.name }}</a>
+        {% endfor %}
+        {% if current_user.username == 'admin' and current_user.is_authenticated %}
+            <a href="{{ url_for('admin') }}" class="buttons_header">Админ</a>
+        {% endif %}
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('logout') }}" class="buttons_header">Выйти</a>
+        {% else %}
+            <a href="{{ url_for('login') }}" class="buttons_header">Войти</a>
+            <a href="{{ url_for('signin') }}" class="buttons_header">Регистрация</a>
+        {% endif %}
+    </header>
+    <div class="main">
+        <h1>Задачи</h1>
+        <div class="main-container">
+            <div class="type-container">
+                <ul>
+                    <li class="task-type-variable"><a href="/tasks">Без фильтрации</a></li>
+                    {% for x in data['tasks-type'] %}
+                    <li class="task-type-variable"><a href="/tasks?sort_type={{ x }}">{{ x }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div id='taskContainer' class="container-tasks">
+            {% if data.tasks|length % 2 == 0 %}
+                {% for i in range(0, data.tasks|length, 2) %}
+                    <div class="task-row">
+                        <a href="{{ url_for('task', task=data['tasks'][i]['name']) }}">
+                            <div class="task">
+                                <div class="name-points">
+                                    <p class="name-task">{{ data['tasks'][i]['name'] }}</p>
+                                    <p class="task-points">{{ data['tasks'][i]['points'] }} баллов</p>
+                                </div>
+
+                                <p class="task-type">{{ data['tasks'][i]['task-type'] }}</p>
+                            </div>
+                        </a>
+                        <a href="{{ url_for('task', task=data['tasks'][i + 1]['name']) }}">
+                            <div class="task">
+                                <div class="name-points">
+                                    <p class="name-task">{{ data['tasks'][i + 1]['name'] }}</p>
+                                    <p class="task-points">{{ data['tasks'][i + 1]['points'] }} баллов</p>
+                                </div>
+                                <p class="task-type">{{ data['tasks'][i + 1]['task-type'] }}</p>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                {% for i in range(0, data.tasks|length - 1, 2) %}
+                    <div class="task-row">
+                        <a href="{{ url_for('task', task=data['tasks'][i]['name'])}}">
+                            <div class="task">
+                                <div class="name-points">
+                                    <p class="name-task">{{ data['tasks'][i]['name'] }}</p>
+                                    <p class="task-points">{{ data['tasks'][i]['points'] }} баллов</p>
+                                </div>
+                                <p class="task-type">{{ data['tasks'][i]['task-type'] }}</p>
+                            </div>
+                        </a>
+                        <a href="{{ url_for('task', task=data['tasks'][i + 1]['name'])}}">
+                            <div class="task">
+                                <div class="name-points">
+                                    <p class="name-task">{{ data['tasks'][i + 1]['name'] }}</p>
+                                    <p class="task-points">{{ data['tasks'][i + 1]['points'] }} баллов</p>
+                                </div>
+                                <p class="task-type">{{ data['tasks'][i + 1]['task-type'] }}</p>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+                <div class="task-row">
+                    <a href="{{ url_for('task', task=data['tasks'][-1]['name'] )}}">
+                        <div class="task">
+                            <div class="name-points">
+                                    <p class="name-task">{{ data['tasks'][-1]['name'] }}</p>
+                                    <p class="task-points">{{ data['tasks'][-1]['points'] }} баллов</p>
+                                </div>
+                            <p class="task-type">{{ data['tasks'][-1]['task-type'] }}</p>
+                        </div>
+                    </a>
+                </div>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Q1",
+        "task-type": "T1",
+        "points": "10",
+        "description": "D1",
+        "filename": "123",
+        "flag": "qwe",
+        "users_solved": []
+    },
+    {
+        "name": "Q2",
+        "task-type": "T1",
+        "points": "10",
+        "description": "D2",
+        "filename": "123",
+        "flag": "qwe",
+        "users_solved": []
+    }
+]

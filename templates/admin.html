@@ -11,7 +11,7 @@
         {% for item in data['nav'] %}
             <a href="{{ item.url }}" class="buttons_header">{{ item.name }}</a>
         {% endfor %}
-        {% if current_user.username == 'admin' and current_user.is_authenticated %}
+        {% if current_user.username == 'admin' %}
             <a href="{{ url_for('admin') }}" class="buttons_header">Админ</a>
         {% endif %}
         {% if current_user.is_authenticated %}
@@ -21,21 +21,27 @@
             <a href="{{ url_for('signin') }}" class="buttons_header">Регистрация</a>
         {% endif %}
     </header>
-
-        <form method="post" action="{{ url_for('login') }}">
+    <div>
+        <form method="post" name="write_task">
             <div class="main-div">
                 <div class="auth_form">
-                    <br><br>
-                    <p class="elem-auth" id="main-header-div">Авторизация</p>
+                    <br>
                     <div class="auth-inputs">
-                        <input type="text" id="username" name="username" class="input-field elem-auth" placeholder="Логин">
-                        <input type="password" id="password" name="password" class="input-field elem-auth" placeholder="Пароль">
-                        <input class="elem-auth buttons-auth" type="submit" value="Войти">
+                        <p class="name-task">Добро пожаловать в Админ панель</p>
+                        <br>
+                        <input name="name" placeholder="name" class="input-field elem-auth admin">
+                        <textarea id="description_place" name="description" placeholder="description" class="input-field elem-auth admin"></textarea>
+                        <input name="type" placeholder="type" class="input-field elem-auth admin">
+                        <input name="filename" placeholder="filename" class="input-field elem-auth admin">
+                        <input name="flag" placeholder="flag" class="input-field elem-auth admin">
+                        <input name="points" placeholder="points" class="input-field elem-auth admin">
+                        <input class="elem-auth buttons-auth" type="submit" value="Добавить">
 
                     </div>
-                    <p class="elem-auth">Нет аккаунта? <a href="{{ url_for('signin') }}">Зарегистрироваться</a></p><br><br>
+                    <br>
                 </div>
             </div>
         </form>
+    </div>
 </body>
 </html>
