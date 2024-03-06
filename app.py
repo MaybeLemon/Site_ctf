@@ -175,7 +175,7 @@ def top():
 @app.route('/file')
 def file():
     if 'filename' in request.args:
-        return send_file(f'tasks_files/{request.args['type']}/{request.args['filename']}')
+        return send_file(f"tasks_files/{request.args['type']}/{request.args['filename']}")
     return render_template('error.html', data=data)
 
 if __name__ == '__main__':
