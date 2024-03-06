@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Топ</title>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/main_style.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/top.css')}}">
+</head>
+<body>
+    {% include 'header.html' %}
+    <div>
+    <table>
+        <thead>
+            <tr>
+                <th>Пользователь</th>
+                <th>Баллы</th>
+                <th>Дата регистрации</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user, info in data['users'] %}
+            <tr {% if info['admin'] %} class="td-admin" {% endif %}>
+                <td>{% if info['admin'] %}<img class="admin-png" src="{{ url_for('static', filename='icons/korona.png') }}">{% endif %}{{ user }}</td>
+                <td>{{ info['points'] }}</td>
+                <td>{{ info['time'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

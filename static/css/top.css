@@ -1,0 +1,66 @@
+@keyframes shadow {
+    0% {
+        box-shadow: 0 0 10px rgba(4, 255, 226, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(163, 4, 255, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(4, 255, 25, 0.4);
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+table {
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-family: var(--main-font-family);
+    color: var(--text-color);
+    animation: shadow 3s infinite alternate;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    box-shadow: 0 0 10px rgba(4, 255, 226, 0.4);
+}
+
+th {
+    background-color: rgba(0, 0, 0, 0.51);
+}
+
+tbody tr:hover {
+    box-shadow: 0 0 20px rgba(222, 4, 255, 0.5);
+}
+
+.td-admin {
+    background: linear-gradient(
+            149deg,
+            rgb(0, 71, 84) 0%,
+            rgb(0, 20, 86) 25%,
+            rgb(87, 0, 67) 75%,
+            rgb(128, 64, 0) 100%) fixed;
+    background-size: 400% 400%;
+    animation: gradient 6s infinite ease;
+}
+
+.admin-png {
+    width: 18px;
+    height: 15px;
+    margin-right: 4px;
+}
