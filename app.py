@@ -20,6 +20,7 @@ data = {'nav': get_nav(app), 'otvet': ''}
 class User(UserMixin):
     def __init__(self, username):
         self.username = username
+
     def get_id(self):
         return self.username
 
@@ -85,11 +86,13 @@ def signin():
 
     return render_template('reg.html', data=data)
 
+
 @app.route('/logout')
 def logout():
     if current_user.is_authenticated:
         logout_user()
     return redirect(url_for('login'))
+
 
 @app.route('/')
 def hello():
@@ -143,6 +146,7 @@ def task():
             data['otvet_task'] = ''
     return render_template('task.html', data=data)
 
+
 @app.route('/admin', methods=['GET', 'POST'])
 def admin():
     users = users_getter()
@@ -162,6 +166,7 @@ def admin():
                                  request.form['points'])
     return render_template('admin.html', data=data)
 
+
 @app.route('/top')
 def top():
     users = users_getter()
@@ -172,11 +177,13 @@ def top():
     data['users'] = sorted(users.items(), key=lambda x: x[1]['points'], reverse=True)
     return render_template('top.html', data=data)
 
+
 @app.route('/file')
 def file():
     if 'filename' in request.args:
         return send_file(f"tasks_files/{request.args['type']}/{request.args['filename']}")
     return render_template('error.html', data=data)
+
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)

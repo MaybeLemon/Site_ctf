@@ -1,6 +1,7 @@
 import os
 import json
 
+
 class TasksGetter:
     def __init__(self):
         self.tasks = []
@@ -17,7 +18,8 @@ class TasksGetter:
             return sorted(self.tasks, key=lambda x: x['task-type'])
 
     def write_task(self, name, task_type, description, filename, flag, points):
-        new_task = {'name': name, 'task-type': task_type, 'points': points, 'description': description, 'filename': filename, 'flag': flag, 'users_solved': []}
+        new_task = {'name': name, 'task-type': task_type, 'points': points, 'description': description,
+                    'filename': filename, 'flag': flag, 'users_solved': []}
         self.tasks.append(new_task)
         with open('tasks.json', 'w', encoding='utf-8') as json_file:
             json.dump(self.tasks, json_file, ensure_ascii=False, indent=4)

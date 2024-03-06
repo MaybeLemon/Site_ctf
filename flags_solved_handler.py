@@ -2,6 +2,7 @@ from time_getter import timegetter
 from users_getter import users_getter
 import json
 
+
 def handler(current_task, all_tasks, current_user):
     task_index = None
     for index, task in enumerate(all_tasks):
@@ -19,4 +20,3 @@ def handler(current_task, all_tasks, current_user):
 
     with open('tasks.json', 'w', encoding='utf-8') as json_file:
         json.dump(all_tasks, json_file, ensure_ascii=False, indent=4)
-
