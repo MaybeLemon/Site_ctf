@@ -27,6 +27,7 @@ header {
 
 .buttons_header {
     padding: 10px;
+    padding-top: 12px;
     margin: 0 2px 2px 2px;
     width: 100px;
     color: var(--text-color);
@@ -46,6 +47,26 @@ header {
     border-radius: 5px;
     box-shadow: 0 0 20px rgba(4, 255, 226, 0.8);
     transform: translateY(5px);
+}
+
+.profile-image {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0 10px;
+    margin: 0 2px;
+    width: 100px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-family: var(--main-font-family);
+    font-size: 18px;
+    border-left: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    border-right: 1px solid transparent;
+    transition: 0.4s;
+}
+.profile-image a {
+    width: 100%;
 }
 
 .main {
@@ -239,4 +260,11 @@ h2 {
 .centered {
     justify-content: center !important;
     text-align: center !important;
+}
+
+#exit_header {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-left: 3px;
 }

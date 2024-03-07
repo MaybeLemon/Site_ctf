@@ -184,6 +184,9 @@ def file():
         return send_file(f"tasks_files/{request.args['type']}/{request.args['filename']}")
     return render_template('error.html', data=data)
 
+@app.route('/profile')
+def profile():
+    return render_template('profile.html', data=data)
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)

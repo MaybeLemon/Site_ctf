@@ -1,4 +1,5 @@
 <header>
+
     {% for item in data['nav'] %}
         <a href="{{ item.url }}" class="buttons_header">{{ item.name }}</a>
     {% endfor %}
@@ -6,7 +7,16 @@
         <a href="{{ url_for('admin') }}" class="buttons_header">Админ</a>
     {% endif %}
     {% if current_user.is_authenticated %}
-        <a href="{{ url_for('logout') }}" class="buttons_header">Выйти</a>
+        <div class="profile-image">
+            <a href="{{ url_for('profile') }}" class="buttons_header">
+            {{ current_user.username }}
+            </a>
+            <a href="{{ url_for('logout') }}" class="buttons_header">
+            <img id="exit_header" src="{{ url_for('static', filename='icons/exit.png') }}">
+            </a>
+        </div>
+
+
     {% else %}
         <a href="{{ url_for('login') }}" class="buttons_header">Войти</a>
         <a href="{{ url_for('signin') }}" class="buttons_header">Регистрация</a>
