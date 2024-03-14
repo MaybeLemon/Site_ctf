@@ -8,7 +8,7 @@
     {% endif %}
     {% if current_user.is_authenticated %}
         <div class="profile-image">
-            <a href="{{ url_for('profile') }}" class="buttons_header">
+            <a href="{{ url_for('profile', username=current_user.username) }}" class="buttons_header">
             {{ current_user.username }}
             </a>
             <a href="{{ url_for('logout') }}" class="buttons_header">

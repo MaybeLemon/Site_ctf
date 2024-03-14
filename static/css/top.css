@@ -64,3 +64,11 @@ tbody tr:hover {
     height: 15px;
     margin-right: 4px;
 }
+
+td a {
+    color: var(--text-color);
+}
+
+td a:hover {
+    color: #1a8604;
+}

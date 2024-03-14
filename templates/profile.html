@@ -4,10 +4,19 @@
     <meta charset="UTF-8">
     <title>Топ</title>
     <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/main_style.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/user_profile.css')}}">
 </head>
 <body>
     {% include 'header.html' %}
-
-
+    <div class="main-div" {% if data['is_cur_admin'] %} style="box-shadow: 0 0 20px rgba(4, 255, 226, 0.8);" {% endif %}>
+        <div {% if data['is_cur_admin'] %}class="admin-profile"{% endif %}>
+            {% if data['is_cur_admin'] %}
+            <img class="admin-png" src="{{ url_for('static', filename='icons/korona.png') }}">
+            {% endif %}
+            <h2 style="font-size: 30px">{{ data['username'] }}</h2>
+        </div>
+        <p class="text">Получено очков: {{ data['points'] }}</p>
+        <p class="text">Решено заданий: {{ data['count'] }}</p>
+    </div>
 </body>
 </html>

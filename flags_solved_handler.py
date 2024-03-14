@@ -13,6 +13,7 @@ def handler(current_task, all_tasks, current_user):
     if task_index is not None:
         all_users = users_getter()
         all_users[current_user.username]['points'] += int(all_tasks[task_index]['points'])
+        all_users[current_user.username]['count'] += 1
         all_tasks[task_index]['users_solved'].append({"user": current_user.username, "time": timegetter()})
 
     with open('users.json', 'w', encoding='utf-8') as json_file:

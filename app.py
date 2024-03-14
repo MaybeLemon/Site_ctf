@@ -75,7 +75,7 @@ def signin():
         hash_sha512.update(password.encode('utf-8'))
         pass_hash = hash_sha512.hexdigest()
         if username not in users:
-            users[username] = {'password': pass_hash, 'points': 0, 'admin': False, 'time': timegetter()}
+            users[username] = {'password': pass_hash, 'points': 0, 'admin': False, 'time': timegetter(), 'count': 0}
             save_users(users)
             user = User(username)
             login_user(user)
@@ -186,7 +186,21 @@ def file():
 
 @app.route('/profile')
 def profile():
+    users = users_getter()
+    if current_user.is_authenticated:
+        data['admin'] = users[current_user.username]['admin']
+    else:
+        data['admin'] = False
+    if 'username' in request.args:
+        data['username'] = request.args['username']
+        if current_user.is_authenticated:
+            data['is_cur_admin'] = users[request.args['username']]['admin']
+        else:
+            data['is_cur_admin'] = False
+        print(data['admin'], data['is_cur_admin'])
+        data['count'] = users[request.args['username']]['count']
+        data['points'] = users[request.args['username']]['points']
     return render_template('profile.html', data=data)
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5000, debug=True)
+    app.run('0.0.0.0', port=5009, debug=True)

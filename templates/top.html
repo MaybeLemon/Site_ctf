@@ -15,6 +15,7 @@
                 <th>Пользователь</th>
                 <th>Баллы</th>
                 <th>Дата регистрации</th>
+                <th>Ссылка</th>
             </tr>
         </thead>
         <tbody>
@@ -23,6 +24,7 @@
                 <td>{% if info['admin'] %}<img class="admin-png" src="{{ url_for('static', filename='icons/korona.png') }}">{% endif %}{{ user }}</td>
                 <td>{{ info['points'] }}</td>
                 <td>{{ info['time'] }}</td>
+                <td><a href="{{ url_for('profile', username=user) }}">Ссылка</a></td>
             </tr>
             {% endfor %}
         </tbody>

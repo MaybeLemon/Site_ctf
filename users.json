@@ -3,12 +3,14 @@
         "password": "36fd5205f558cda67136d0d4196f25bd1d23514af001b616364034dba8429b67142bb9a22c882ee2692a85d78b3bf521aecf1bf58bed723d55790c005b21bbd4",
         "points": 0,
         "admin": true,
-        "time": "06.03.2024 21:56:51"
+        "time": "06.03.2024 21:56:51",
+        "count": 0
     },
     "test": {
         "password": "ee26b0dd4af7e749aa1a8ee3c10ae9923f618980772e473f8819a5d4940e0db27ac185f8a0e1d5f84f88bc887fd67b143732c304cc5fa9ad8e6f57f50028a8ff",
         "points": 100,
         "admin": false,
-        "time": "06.03.2024 21:57:15"
+        "time": "06.03.2024 21:57:15",
+        "count": 5
     }
 }
