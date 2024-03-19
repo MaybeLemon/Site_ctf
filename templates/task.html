@@ -9,8 +9,8 @@
 <body>
     {% include 'header.html' %}
     <div class="main-div">
-        {% if data['otvet_task'] %}
-            {% if data['flag-correct'] %}
+        {% if data['otvet_task'] or data['solved'] %}
+            {% if data['flag-correct'] or data['solved'] %}
             <div style="box-shadow: 0 0 20px rgba(12,255,4,0.8);" class="task-frame">
             {% else %}
             <div style="box-shadow: 0 0 20px rgba(255,0,0,0.8);" class="task-frame">
@@ -20,7 +20,7 @@
         {% endif %}
             <div class="name-type-task">
                 <p class="name-task">{{ data['current_task']['name'] }}</p>
-                <p class="task-type">{{ data['current_task']['task-type'] }} | {{ data['current_task']['points'] }} баллов</p>
+                <p class="task-type">{{ data['current_task']['task_type'] }} | {{ data['current_task']['points'] }} баллов</p>
             </div>
             <div class="for-desc-and-file">
                 <p class="task-description">{{ data['current_task']['description'] }}</p>

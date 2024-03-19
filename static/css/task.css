@@ -17,7 +17,7 @@
     text-align: justify;
     justify-content: flex-start;
     border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.03);
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     font-family: var(--main-font-family);
     color: var(--text-color);
@@ -75,7 +75,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-    border-top: solid 2px rgba(255, 255, 255, 0.3);
+    border-top: #191925 solid 2px;
     padding: 0 20px;
     padding-top: 15px;
 }
@@ -139,7 +139,7 @@
 }
 
 .warning {
-    border-top: solid rgba(255, 255, 255, 0.3) 3px;
+    border-top: dashed #191925 3px;
     padding-top: 20px;
     margin-top: 20px;
     text-align: center;

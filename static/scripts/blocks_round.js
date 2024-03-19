@@ -18,7 +18,6 @@ function alignTaskRows() {
             taskRow.querySelectorAll('.task').forEach(function(task) {
                 childrenWidth += task.offsetWidth;
             });
-            console.log(childrenWidth + 80, taskRow.offsetWidth);
             if (childrenWidth + 80 < taskRow.offsetWidth) {
                 taskRow.classList.remove('centered');
             } else {

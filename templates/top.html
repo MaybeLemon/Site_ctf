@@ -19,12 +19,12 @@
             </tr>
         </thead>
         <tbody>
-            {% for user, info in data['users'] %}
-            <tr {% if info['admin'] %} class="td-admin" {% endif %}>
-                <td>{% if info['admin'] %}<img class="admin-png" src="{{ url_for('static', filename='icons/korona.png') }}">{% endif %}{{ user }}</td>
-                <td>{{ info['points'] }}</td>
-                <td>{{ info['time'] }}</td>
-                <td><a href="{{ url_for('profile', username=user) }}">Ссылка</a></td>
+            {% for user in data['users'] %}
+            <tr {% if user.admin %} class="td-admin" {% endif %}>
+                <td>{% if user.admin %}<img class="admin-png" src="{{ url_for('static', filename='icons/korona.png') }}">{% endif %}{{ user.username }}</td>
+                <td>{{ user.points }}</td>
+                <td>{{ user.time }}</td>
+                <td><a href="{{ url_for('profile', username=user.username) }}">Ссылка</a></td>
             </tr>
             {% endfor %}
         </tbody>
