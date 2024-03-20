@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, send_file
-from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
+from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user
 from flask_sqlalchemy import SQLAlchemy
 import hashlib
 
@@ -9,7 +9,7 @@ from tasks import TasksGetter
 from time_getter import timegetter
 
 app = Flask(__name__, static_folder='static')
-app.secret_key = 'your_secret_key'
+app.secret_key = 'my_secret_key'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ctf_table.db'
 
 db = SQLAlchemy(app)
